@@ -11,6 +11,12 @@ class Content extends React.Component {
   }
 
   render() {
-    return React.createElement(ClickMeCounterButton, { numberOfTimes: this.state.numberOfTimes, clickMeCounterButtonClickHandler: this.handler });
+    return React.createElement(
+      "div",
+      null,
+      React.createElement(ClickMeCounterButton, { clickMeCounterButtonClickHandler: this.handler }),
+      React.createElement("br", null),
+      React.createElement(Counter, { numberOfTimes: this.state.numberOfTimes })
+    );
   }
 }

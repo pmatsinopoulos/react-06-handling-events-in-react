@@ -12,7 +12,11 @@ class Content extends React.Component {
 
   render() {
     return (
-      <ClickMeCounterButton numberOfTimes={this.state.numberOfTimes} clickMeCounterButtonClickHandler={this.handler}/>
+      <div>
+        <ClickMeCounterButton clickMeCounterButtonClickHandler={this.handler}/>
+        <br/>
+        <Counter numberOfTimes={this.state.numberOfTimes} />
+      </div>
     )
   }
 }
