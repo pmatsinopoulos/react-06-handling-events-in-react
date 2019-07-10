@@ -3,7 +3,12 @@
 //   document.getElementById('react-root-element')
 // )
 
+// ReactDOM.render(
+//   <ClickMeButton/>,
+//   document.getElementById('react-root-element')
+// )
+
 ReactDOM.render(
-  <ClickMeButton/>,
+  <Content />,
   document.getElementById('react-root-element')
 )
