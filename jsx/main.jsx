@@ -4,6 +4,6 @@
 // )
 
 ReactDOM.render(
-  <MyDiv/>,
+  <ClickMeButton/>,
   document.getElementById('react-root-element')
 )
