@@ -3,6 +3,11 @@ class Content extends React.Component {
     console.debug(this, 'component did mount');
   }
   render() {
-    return React.createElement(SliderButtons, null);
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(SliderValue, null),
+      React.createElement(SliderButtons, null)
+    );
   }
 }

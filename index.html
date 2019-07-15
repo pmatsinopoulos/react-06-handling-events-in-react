@@ -30,7 +30,18 @@
     </div>
 
     <script src="js/SliderButtons.js" type="text/javascript"></script>
+    <script src="js/SliderValue.js" type="text/javascript"></script>
     <script src="js/Content.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var notifyOthers = function (event, ui) {
+          console.debug('slider dispatched from slider')
+          window.dispatchEvent(new CustomEvent('slide', {detail: {newValue: ui.value}}))
+        }
+        $('#slider').slider({
+            slide: notifyOthers
+        })
+    </script>
 </body>
 </html>

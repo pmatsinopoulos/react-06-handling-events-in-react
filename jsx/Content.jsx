@@ -4,7 +4,10 @@ class Content extends React.Component {
   }
   render() {
     return (
-      <SliderButtons />
+      <div>
+        <SliderValue />
+        <SliderButtons />
+      </div>
     )
   }
 }

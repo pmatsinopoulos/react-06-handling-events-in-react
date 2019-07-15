@@ -3,36 +3,32 @@ class SliderButtons extends React.Component {
     super(props)
 
     this.state = {sliderValue: 0}
-    this.handleSlide = this.handleSlide.bind(this)
+    this.handleSlideEvent = this.handleSlideEvent.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
   // This will be called by the jQuery UI control/Slider
-  handleSlide(event, ui) {
-    console.debug(this, 'handleSlide')
-    this.setState({sliderValue: ui.value})
+  handleSlideEvent(event) {
+    console.debug(this, 'handleSlide event')
+    this.setState({sliderValue: event.detail.newValue})
   }
 
   // This is the method to update Slider when a button is clicked
   handleChange(value) {
-    console.debug(this, 'handleChange')
     return () => {
-      $('#slider').slider('value', this.state.sliderValue + value)
-      this.setState({sliderValue: this.state.sliderValue + value})
+      let newValue = this.state.sliderValue + value
+      console.debug(this, 'dispatching slide event')
+      window.dispatchEvent(new CustomEvent('slide', {detail: {newValue: newValue}}))
     }
   }
 
   componentDidMount() {
     console.debug(this, 'component did mount')
-    $('#slider').slider({
-      change: this.handleSlide
-    })
-
-    $('#slider').on('slide', this.handleSlide)
+    window.addEventListener('slide', this.handleSlideEvent)
   }
 
   componentWillUnmount() {
-    $('#slider').off('slide', this.handleSlide)
+    window.removeEventListener('slide', this.handleSlideEvent)
   }
 
   render() {
